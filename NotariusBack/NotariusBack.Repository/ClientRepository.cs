@@ -11,10 +11,11 @@ namespace NotariusBack.Repository
 {
     public class ClientRepository
     {
-        public async Task Add(Client client)
+        public async Task<Client> Add(Client client)
         {
             NotariusDbContext.db.Clients.Add(client);
             await NotariusDbContext.db.SaveChangesAsync();
+            return client;
         }
 
         public async Task Update(Client client)

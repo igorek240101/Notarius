@@ -20,10 +20,10 @@ namespace NotariusBack.Service
             repository = new ClientRepository();
         }
 
-        public async Task Add(ClientDto clientDto)
+        public async Task<Client> Add(ClientDto clientDto)
         {
             Client client = new Client() { Name = clientDto.Name, Adress = clientDto.Adress, Phone = clientDto.Phone, Type = clientDto.Type};
-            await repository.Add(client);
+            return await repository.Add(client);
         }
 
         public async Task Update(ClientDto clientDto, int id)

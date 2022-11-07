@@ -53,12 +53,12 @@ namespace NotariusBack.Service
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Неверный пароль");
                 }
             }
             else
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Пользователь с таким логином не найден");
             }
         }
 

@@ -63,7 +63,7 @@ namespace NotariusBack.API.Controllers
             }
             if(userId.HasValue)
             {
-                return Ok(GenerateJWT(userId.Value));
+                return Ok($"{((int)(await userService.GetRole(userId.Value)).Value)} {GenerateJWT(userId.Value)}");
             }
             else
             {

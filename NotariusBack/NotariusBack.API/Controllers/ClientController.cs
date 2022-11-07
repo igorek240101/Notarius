@@ -26,10 +26,10 @@ namespace NotariusBack.API.Controllers
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius, UserRoleEnum.Administrator }))
             {
-                Client client;
+                Client dto;
                 try
                 {
-                    client = await clientService.Get(name);
+                    dto = await clientService.Get(name);
                 }
                 catch (ArgumentException e)
                 {
@@ -39,9 +39,9 @@ namespace NotariusBack.API.Controllers
                 {
                     return BadRequest();
                 }
-                if (client != null)
+                if (dto != null)
                 {
-                    return Ok(client);
+                    return Ok($"{dto.Id}%{dto.Name}%{dto.Adress}%{dto.Phone}%{(int)(dto.Type)}");
                 }
                 else
                 {
@@ -60,9 +60,10 @@ namespace NotariusBack.API.Controllers
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
             {
+                Client dto;
                 try
                 {
-                    await clientService.Add(client);
+                    dto = await clientService.Add(client);
                 }
                 catch (ArgumentException e)
                 {
@@ -72,7 +73,7 @@ namespace NotariusBack.API.Controllers
                 {
                     return BadRequest();
                 }
-                return Ok();
+                return Ok($"{dto.Id}%{dto.Name}%{dto.Adress}%{dto.Phone}%{(int)(dto.Type)}");
             }
             else
             {
@@ -82,7 +83,7 @@ namespace NotariusBack.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public async Task<ActionResult<string>> Update(int id, string? adress, string? phone)
+        public async Task<ActionResult> Update(int id, string? adress, string? phone)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
             {
