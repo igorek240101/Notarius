@@ -20,6 +20,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPost]
+        [Route("Add")]
         public async Task<ActionResult<string>> Add(DealDto deal)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
@@ -45,6 +46,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetOpen")]
         public async Task<ActionResult<List<Deal>>> GetOpen()
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius}))
@@ -78,6 +80,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetDone")]
         public async Task<ActionResult<List<Deal>>> GetDone()
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
@@ -111,6 +114,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpGet]
+        [Route("Get")]
         public async Task<ActionResult<Deal>> Get()
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -144,6 +148,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         public async Task<ActionResult<List<Deal>>> GetAll()
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
@@ -178,6 +183,7 @@ namespace NotariusBack.API.Controllers
 
 
         [HttpPut]
+        [Route("ToInProgress")]
         public async Task<ActionResult> ToInProgress(int id)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -203,6 +209,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPut]
+        [Route("ToDone")]
         public async Task<ActionResult> ToDone(int id, int transactionAmount)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -228,6 +235,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPut]
+        [Route("ToCanceld")]
         public async Task<ActionResult> ToCanceld(int id)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -253,6 +261,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPut]
+        [Route("ToClouse")]
         public async Task<ActionResult> ToClouse(int id)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Administrator }))
@@ -279,6 +288,7 @@ namespace NotariusBack.API.Controllers
 
 
         [HttpGet]
+        [Route("GetSum")]
         public async Task<ActionResult<double>> GetSum(DateTime start, DateTime end)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Financer }))

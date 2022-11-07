@@ -23,7 +23,7 @@ namespace NotariusBack.Service
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlite("Filename=D:\\Kember\\LogDB.db");
+                .UseSqlite("Filename=D:\\NotariusDB.db");
         }
     }
 }

@@ -20,6 +20,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpGet]
+        [Route("Get")]
         public async Task<ActionResult<string>> Get(string name)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius, UserRoleEnum.Administrator }))
@@ -53,6 +54,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPut]
+        [Route("UpdatePrice")]
         public async Task<ActionResult<string>> UpdatePrice(int id, int? price, double? commission)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Financer }))
@@ -79,6 +81,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPost]
+        [Route("Add")]
         public async Task<ActionResult<string>> Add(ServiceDto service)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -104,6 +107,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpPut]
+        [Route("Update")]
         public async Task<ActionResult<string>> Update(int id, int? price, double? commission, string description)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))
@@ -129,6 +133,7 @@ namespace NotariusBack.API.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         public async Task<ActionResult<string>> Delete(int id)
         {
             if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius }))

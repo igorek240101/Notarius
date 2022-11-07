@@ -25,7 +25,8 @@ namespace NotariusBack.API.Controllers
             userService = new UserService();
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("Register")]
         public async Task<ActionResult> Register(UserDto model)
         {
             try
@@ -43,7 +44,8 @@ namespace NotariusBack.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("Login")]
         public async Task<ActionResult<string>> Login(LoginDto model)
         {
             int? userId;
