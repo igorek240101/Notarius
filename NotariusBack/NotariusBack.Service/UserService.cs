@@ -111,16 +111,7 @@ namespace NotariusBack.Service
 
             public static readonly int TokenLifetime = 3600;
 
-            public static string Secret;
-
-            static ServerInfo()
-            {
-                FileStream file = new FileStream("Secret.TTST", FileMode.Open);
-                StreamReader reader = new StreamReader(file);
-                Secret = reader.ReadToEnd();
-                reader.Close();
-                file.Close();
-            }
+            public static string Secret = "Hey, make me coffee! 418 - Sory, I am teapot.";
         }
     }
 }
