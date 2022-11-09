@@ -44,18 +44,23 @@ namespace NotariusFront
                     {
                         case "0":
                             {
+                                Form1.That.Controls.Clear();
                                 Admin admin = new Admin();
                                 Form1.That.Controls.Add(admin);
                             }
                             break;
                         case "1":
                             {
-
+                                Form1.That.Controls.Clear();
+                                Financer financer = new Financer();
+                                Form1.That.Controls.Add(financer);
                             }
                             break;
                         case "2":
                             {
-
+                                Form1.That.Controls.Clear();
+                                Notarius notarius = new Notarius();
+                                Form1.That.Controls.Add(notarius);
                             }
                             break;
                     }

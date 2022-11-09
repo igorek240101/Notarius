@@ -53,6 +53,45 @@ namespace NotariusBack.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<ActionResult<string>> GetAll()
+        {
+            if (await userService.IsAccess(Request, new UserRoleEnum?[] { UserRoleEnum.Notarius, UserRoleEnum.Administrator, UserRoleEnum.Financer }))
+            {
+                List<Repository.Entity.Service> service;
+                try
+                {
+                    service = await serviceService.GetAll();
+                }
+                catch (ArgumentException e)
+                {
+                    return UnprocessableEntity(e.Message);
+                }
+                catch (Exception)
+                {
+                    return BadRequest();
+                }
+                if (service != null)
+                {
+                    string s = string.Empty;
+                    for(int i = 0; i < service.Count; i++)
+                    {
+                        s += $"{service[i].Id}%{service[i].Name}%{service[i].Description}%{service[i].Price}%{service[i].Commission}{((i + 1 < service.Count) ? "~" : "")}";
+                    }
+                    return Ok(s);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
+
         [HttpPut]
         [Route("UpdatePrice")]
         public async Task<ActionResult<string>> UpdatePrice(int id, int? price, double? commission)

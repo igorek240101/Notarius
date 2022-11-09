@@ -66,7 +66,14 @@ namespace NotariusBack.API.Controllers
                 }
                 if (deal != null)
                 {
-                    return Ok(deal);
+                    string s = string.Empty;
+                    for (int i = 0; i < deal.Count; i++)
+                    {
+                        s += $"{deal[i].Id}" +
+                            $"%{deal[i].Description}" +
+                            $"{((i + 1 < deal.Count) ? "~" : "")}";
+                    }
+                    return Ok(s);
                 }
                 else
                 {
@@ -100,7 +107,14 @@ namespace NotariusBack.API.Controllers
                 }
                 if (deal != null)
                 {
-                    return Ok(deal);
+                    string s = string.Empty;
+                    for (int i = 0; i < deal.Count; i++)
+                    {
+                        s += $"{deal[i].Id}" +
+                            $"%{deal[i].Description}" +
+                            $"{((i + 1 < deal.Count) ? "~" : "")}";
+                    }
+                    return Ok(s);
                 }
                 else
                 {
@@ -132,14 +146,25 @@ namespace NotariusBack.API.Controllers
                 {
                     return BadRequest();
                 }
+                string s;
                 if (deal != null)
                 {
-                    return Ok(deal);
+                    s = $"{deal.Id}" +
+                        $"%{deal.Description}" +
+                        $"%{deal.Date}" +
+                        $"%{deal.Client.Id}" +
+                        $"~{deal.Client.Name}" +
+                        $"~{deal.Client.Phone}" +
+                        $"~{deal.Client.Adress}" +
+                        $"~{deal.Client.Type}" +
+                        $"%{deal.Service.Id}" +
+                        $"~{deal.Service.Name}" +
+                        $"~{deal.Service.Description}" +
+                        $"~{deal.Service.Price}" +
+                        $"~{deal.Service.Commission}";
                 }
-                else
-                {
-                    return BadRequest();
-                }
+                else s = "null";
+                return Ok(s);
             }
             else
             {

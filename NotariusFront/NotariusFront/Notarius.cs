@@ -10,26 +10,25 @@ using System.Windows.Forms;
 
 namespace NotariusFront
 {
-    public partial class Admin : UserControl
+    public partial class Notarius : UserControl
     {
         Control WorkControl { get; set; }
-
-        public Admin()
+        public Notarius()
         {
             InitializeComponent();
         }
 
-        private void NewDealToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ServiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Controls.Remove(WorkControl);
-            WorkControl = new NewDeal();
+            WorkControl = new NotariusService();
             Controls.Add(WorkControl);
         }
 
-        private void WorkWithDealToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Controls.Remove(WorkControl);
-            WorkControl = new ClouseDeal();
+            WorkControl = new NotariusWork();
             Controls.Add(WorkControl);
         }
     }

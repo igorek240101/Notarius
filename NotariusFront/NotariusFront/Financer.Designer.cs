@@ -1,6 +1,6 @@
 ﻿namespace NotariusFront
 {
-    partial class Admin
+    partial class Financer
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -29,45 +29,44 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.NewDealToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WorkWithDealToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewDealToolStripMenuItem,
-            this.WorkWithDealToolStripMenuItem});
+            this.PriceToolStripMenuItem,
+            this.MoneyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(737, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(501, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // NewDealToolStripMenuItem
+            // PriceToolStripMenuItem
             // 
-            this.NewDealToolStripMenuItem.Name = "NewDealToolStripMenuItem";
-            this.NewDealToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.NewDealToolStripMenuItem.Text = "Новая сделка";
-            this.NewDealToolStripMenuItem.Click += new System.EventHandler(this.NewDealToolStripMenuItem_Click);
+            this.PriceToolStripMenuItem.Name = "PriceToolStripMenuItem";
+            this.PriceToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.PriceToolStripMenuItem.Text = "Цены";
+            this.PriceToolStripMenuItem.Click += new System.EventHandler(this.PriceToolStripMenuItem_Click);
             // 
-            // WorkWithDealToolStripMenuItem
+            // MoneyToolStripMenuItem
             // 
-            this.WorkWithDealToolStripMenuItem.Name = "WorkWithDealToolStripMenuItem";
-            this.WorkWithDealToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.WorkWithDealToolStripMenuItem.Text = "Работа со сделками";
-            this.WorkWithDealToolStripMenuItem.Click += new System.EventHandler(this.WorkWithDealToolStripMenuItem_Click);
+            this.MoneyToolStripMenuItem.Name = "MoneyToolStripMenuItem";
+            this.MoneyToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.MoneyToolStripMenuItem.Text = "Доходы";
+            this.MoneyToolStripMenuItem.Click += new System.EventHandler(this.MoneyToolStripMenuItem_Click);
             // 
-            // Admin
+            // Financer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.Controls.Add(this.menuStrip1);
-            this.Name = "Admin";
-            this.Size = new System.Drawing.Size(737, 452);
+            this.Name = "Financer";
+            this.Size = new System.Drawing.Size(501, 398);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -78,7 +77,7 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem NewDealToolStripMenuItem;
-        private ToolStripMenuItem WorkWithDealToolStripMenuItem;
+        private ToolStripMenuItem PriceToolStripMenuItem;
+        private ToolStripMenuItem MoneyToolStripMenuItem;
     }
 }

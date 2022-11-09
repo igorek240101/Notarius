@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NotariusBack.Service.ModelDto
+namespace NotariusFront
 {
-    public class ServiceDto
+    internal class ServiceDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

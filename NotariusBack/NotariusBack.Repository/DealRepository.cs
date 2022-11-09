@@ -20,7 +20,9 @@ namespace NotariusBack.Repository
 
         public async Task UpdateTransaction(int id, int transactionAmount)
         {
-            Deal deal = NotariusDbContext.db.Deals.FirstOrDefault(t => t.Id == id);
+            Deal deal = NotariusDbContext.db.Deals.Include(t => t.Client)
+                                                 .Include(t => t.Service)
+                                                 .FirstOrDefault(t => t.Id == id);
             if(deal != null)
             {
                 deal.TransactionAmount = transactionAmount;
@@ -34,7 +36,7 @@ namespace NotariusBack.Repository
 
         public async Task ChangeStatus(int id, DealStatusEnum dealStatus)
         {
-            Deal deal = NotariusDbContext.db.Deals.FirstOrDefault(t => t.Id == id);
+            Deal deal = NotariusDbContext.db.Deals.Include(t => t.Client).Include(t => t.Service).FirstOrDefault(t => t.Id == id);
             if (deal != null)
             {
                 deal.Status = dealStatus;
@@ -46,8 +48,12 @@ namespace NotariusBack.Repository
             }
         }
 
-        public async Task<Deal> Get(int id) => await NotariusDbContext.db.Deals.FirstOrDefaultAsync(t => t.Id == id);
+        public async Task<Deal> Get(int id) => await NotariusDbContext.db.Deals
+                                                        .Include(t => t.Client)
+                                                        .Include(t => t.Service).FirstOrDefaultAsync(t => t.Id == id);
 
-        public async Task<List<Deal>> GetAll() => await NotariusDbContext.db.Deals.ToListAsync();
+        public async Task<List<Deal>> GetAll() => await NotariusDbContext.db.Deals
+                                                        .Include(t => t.Client)
+                                                        .Include(t => t.Service).ToListAsync();
     }
 }
